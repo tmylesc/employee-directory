@@ -11,11 +11,11 @@ function Employees() {
         order: "descend",
         filteredUsers: [],
         headings: [
-          { name: "image", width: "10%", order: "descend" },
-          { name: "name", width: "10%", order: "descend" },
-          { name: "phone", width: "10%", order: "descend" },
-          { name: "email", width: "10%", order: "descend" },
-          { name: "dob", width: "10%", order: "descend" }
+          { name: "Photo", width: "10%", order: "descend" },
+          { name: "Name", width: "10%", order: "descend" },
+          { name: "Phone Number", width: "10%", order: "descend" },
+          { name: "Email", width: "10%", order: "descend" },
+          { name: "Date of Birth", width: "10%", order: "descend" }
         ]
       });
 
@@ -100,7 +100,9 @@ function Employees() {
     return (
         <EmployeesContext.Provider value={{ developerState, handleSearchChange, handleSort }}>
             <Search />
-            <EmployeeGrid />
+            <div className="data-area">
+                {developerState.filteredUsers.length > 0 ? <EmployeeGrid /> : <div></div>}
+            </div>
         </EmployeesContext.Provider>
     );
 };
